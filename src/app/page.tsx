@@ -1,101 +1,219 @@
+import Catalog from "@/components/Catalog";
+import CategoryCard from "@/components/CategoryCard";
 import Image from "next/image";
+import Link from "next/link";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="max-w-screen-xl m-auto">
+      <section>
+        <div className="flex max-lg:flex-col max-lg:items-center lg:justify-between py-24 px-2 md:px-20 max-lg:gap-20">
+          <div className="max-lg:flex text-primary max-lg:flex-col max-lg:text-center max-lg:items-center">
+            <p className="text-gray-500 text-lg">WELCOME TO CHAIRY</p>
+            <h1 className="text-[60px] font-bold my-4">
+              Best Furniture
+              <br />
+              Collection For Your
+              <br />
+              Interior.
+            </h1>
+            <Link href="/product">
+              <button className="bg-secondary text-[16px] text-white py-4 px-8 flex items-center rounded-md outline-none">
+                Shop Now
+                <span className="ml-2">
+                  <FaArrowRight />
+                </span>
+              </button>
+            </Link>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <div>
             <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="/images/chair.png"
+              width={350}
+              height={500}
+              alt="Chair"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </section>
+
+      <section className="flex gap-24 flex-wrap justify-center items-center my-8">
+        {[
+          { src: "/companies/zapier.png" },
+          { src: "/companies/pipedrive.png" },
+          { src: "/companies/bank.png" },
+          { src: "/companies/z.png" },
+          { src: "/companies/burnt.png" },
+          { src: "/companies/doc.png" },
+          { src: "/companies/moz.png" },
+        ].map(({ src }, index) => (
+          <Image key={index} src={src} alt="logo" width={100} height={100} />
+        ))}
+      </section>
+
+      <section className="container px-5 py-24 mx-auto">
+        <h1 className="text-[32px] mb-4 font-semibold">Featured Products</h1>
+        <div className="flex flex-wrap justify-center gap-8">
+          <Catalog
+            tag="New"
+            name="Library Stool Chair"
+            imageUrl="/products/product-1.jpeg"
+            price="$20"
+            tagColor="bg-green-500"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+
+          <Link href="/product/library-stool-chair">
+            <Catalog
+              tag="Sales"
+              tagColor="bg-orange-500"
+              name="Library Stool Chair"
+              imageUrl="/products/product-2.jpeg"
+              price="$20"
+              oldPrice="$30"
+            />
+          </Link>
+
+          <Catalog
+            name="Library Stool Chair"
+            imageUrl="/products/product-3.jpeg"
+            price="$20"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+
+          <Catalog
+            name="Library Stool Chair"
+            imageUrl="/products/product-4.jpeg"
+            price="$20"
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        </div>
+      </section>
+
+      <section className="container px-5 py-24 mx-auto">
+        <h1 className="text-[32px] mb-4 font-semibold">Top Categories</h1>
+        <div className="flex flex-wrap gap-8 justify-center">
+          <CategoryCard imageUrl="/category/cat-1.jpeg" />
+
+          <CategoryCard imageUrl="/category/cat-2.jpeg" />
+
+          <CategoryCard imageUrl="/category/cat-3.jpeg" />
+        </div>
+      </section>
+
+      <section className="container px-5 py-24 mx-auto">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-col text-center w-full mb-20"></div>
+          <div className="flex flex-wrap -m-4">
+            <div className="lg:w-1/2 sm:w-1/2 p-4">
+              <div className="flex relative">
+                <img
+                  alt="dummy"
+                  className="object-cover object-center w-[648px] h-[648px]"
+                  src="/gallery/1.jpeg"
+                />
+              </div>
+            </div>
+
+            <div className="lg:w-1/2 sm:w-full p-4">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-4">
+                <div className="flex relative">
+                  <img
+                    alt="gallery"
+                    className="object-cover object-center w-[312px] h-[312px]"
+                    src="/gallery/2.jpeg"
+                  />
+                </div>
+                <div className="flex relative">
+                  <img
+                    alt="gallery"
+                    className="object-cover object-center w-[312px] h-[312px]"
+                    src="/gallery/3.jpeg"
+                  />
+                </div>
+                <div className="flex relative">
+                  <img
+                    alt="gallery"
+                    className="object-cover object-center w-[312px] h-[312px]"
+                    src="/gallery/4.jpeg"
+                  />
+                </div>
+                <div className="flex relative">
+                  <img
+                    alt="gallery"
+                    className="object-cover object-center w-[312px] h-[312px]"
+                    src="/gallery/5.jpeg"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="container px-5 py-24 mx-auto">
+        <h1 className="text-[32px] mb-4 font-semibold">Our Products</h1>
+        <div className="flex flex-wrap justify-center gap-8">
+          <Catalog
+            tag="New"
+            name="Library Stool Chair"
+            imageUrl="/products/product-1.jpeg"
+            price="$20"
+            tagColor="bg-green-500"
+          />
+
+          <Link href="/product/library-stool-chair">
+            <Catalog
+              tag="Sales"
+              tagColor="bg-orange-500"
+              name="Library Stool Chair"
+              imageUrl="/products/product-2.jpeg"
+              price="$20"
+              oldPrice="$30"
+            />
+          </Link>
+
+          <Catalog
+            name="Library Stool Chair"
+            imageUrl="/products/product-3.jpeg"
+            price="$20"
+          />
+
+          <Catalog
+            name="Library Stool Chair"
+            imageUrl="/products/product-4.jpeg"
+            price="$20"
+          />
+
+          <Catalog
+            tag="New"
+            name="Library Stool Chair"
+            imageUrl="/products/product-9.jpeg"
+            price="$20"
+            tagColor="bg-green-500"
+          />
+
+          <Catalog
+            tag="Sales"
+            tagColor="bg-orange-500"
+            name="Library Stool Chair"
+            imageUrl="/products/product-6.jpeg"
+            price="$20"
+            oldPrice="$30"
+          />
+
+          <Catalog
+            name="Library Stool Chair"
+            imageUrl="/products/product-7.jpeg"
+            price="$20"
+          />
+
+          <Catalog
+            name="Library Stool Chair"
+            imageUrl="/products/product-8.jpeg"
+            price="$20"
+          />
+        </div>
+      </section>
     </div>
   );
 }
