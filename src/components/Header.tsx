@@ -44,13 +44,17 @@ const Header = (props: Props) => {
                   </span>
                 </p>
               </div>
-              <p className="justify-self-end">Faqs</p>
-              <p className="flex items-center gap-1">
-                <span>
-                  <IoMdInformationCircleOutline />
-                </span>
-                Need Help
-              </p>
+              <Link href="/faq">
+                <p className="justify-self-end">Faqs</p>
+              </Link>
+              <Link href="/contact">
+                <p className="flex items-center gap-1">
+                  <span>
+                    <IoMdInformationCircleOutline />
+                  </span>
+                  Need Help
+                </p>
+              </Link>
             </div>
           </div>
         </div>
@@ -97,7 +101,14 @@ const Header = (props: Props) => {
               </li>
             </ul>
           </nav>
-          <p>
+          <p
+            title="Click to copy"
+            style={{ cursor: "default" }}
+            onClick={() => {
+              navigator.clipboard.writeText("808-555-0111");
+              alert("Contact no. copied");
+            }}
+          >
             <span className="text-gray">Contact:</span> (808) 555-0111
           </p>
         </div>

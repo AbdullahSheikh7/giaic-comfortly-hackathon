@@ -100,53 +100,51 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="container px-5 py-24 mx-auto">
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-col text-center w-full mb-20"></div>
-          <div className="flex flex-wrap -m-4">
-            <div className="lg:w-1/2 sm:w-1/2 p-4">
-              <div className="flex relative">
-                <img
-                  alt="dummy"
-                  className="object-cover object-center w-[648px] h-[648px]"
-                  src="/gallery/1.jpeg"
-                />
-              </div>
-            </div>
-
-            <div className="lg:w-1/2 sm:w-full p-4">
-              <div className="grid grid-cols-2 gap-x-4 gap-y-4">
-                <div className="flex relative">
-                  <img
-                    alt="gallery"
-                    className="object-cover object-center w-[312px] h-[312px]"
-                    src="/gallery/2.jpeg"
-                  />
-                </div>
-                <div className="flex relative">
-                  <img
-                    alt="gallery"
-                    className="object-cover object-center w-[312px] h-[312px]"
-                    src="/gallery/3.jpeg"
-                  />
-                </div>
-                <div className="flex relative">
-                  <img
-                    alt="gallery"
-                    className="object-cover object-center w-[312px] h-[312px]"
-                    src="/gallery/4.jpeg"
-                  />
-                </div>
-                <div className="flex relative">
-                  <img
-                    alt="gallery"
-                    className="object-cover object-center w-[312px] h-[312px]"
-                    src="/gallery/5.jpeg"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+      <section className="container px-5 py-24 mx-auto flex">
+        <p className="uppercase text-[32px] vertical-text">
+          Explore new and popular styles
+        </p>
+        <div className="grid gallery-grid-lg xl:gallery-grid-xl gap-2 m-auto">
+          <Image
+            className="rounded-lg"
+            style={{ gridArea: "gallery-1" }}
+            src="/gallery/1.jpeg"
+            height={600}
+            width={600}
+            alt="gallery 1"
+          />
+          <Image
+            className="rounded-lg"
+            style={{ gridArea: "gallery-2" }}
+            src="/gallery/2.jpeg"
+            width={300}
+            height={300}
+            alt="gallery 1"
+          />
+          <Image
+            className="rounded-lg"
+            style={{ gridArea: "gallery-3" }}
+            src="/gallery/3.jpeg"
+            height={300}
+            width={300}
+            alt="gallery 1"
+          />
+          <Image
+            className="rounded-lg"
+            style={{ gridArea: "gallery-4" }}
+            src="/gallery/4.jpeg"
+            height={300}
+            width={300}
+            alt="gallery 1"
+          />
+          <Image
+            className="rounded-lg"
+            style={{ gridArea: "gallery-5" }}
+            src="/gallery/5.jpeg"
+            height={300}
+            width={300}
+            alt="gallery 1"
+          />
         </div>
       </section>
 

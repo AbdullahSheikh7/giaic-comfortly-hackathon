@@ -1,176 +1,199 @@
+"use client";
+
+import { useState } from "react";
 import { CiTrophy } from "react-icons/ci";
-import { RiCustomerService2Fill } from "react-icons/ri";
-import { FaRegCheckCircle } from "react-icons/fa";
+import { FaClock, FaPhoneAlt, FaRegCheckCircle } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
-import { FaPhoneAlt } from "react-icons/fa";
-import { FaClock } from "react-icons/fa6";
+import { RiCustomerService2Fill } from "react-icons/ri";
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle form submission
+    console.log("Form submitted:", formData);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   return (
-    <div>
-      <section className="bg-white py-12 px-4 md:px-12">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-semibold text-center mb-4">
-            Get In Touch With Us
-          </h2>
-          <p className="text-gray-600 text-center mb-8">
-            For more information about our products & services, please feel free
-            to drop us an email.
-            <br />
-            Our staff always be there to help you out. Do not hesitate!
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
-            {/* Contact Info */}
-            <div className="space-y-8 w-[350px] ml-20 ">
-              <div className="flex items-start">
-                <span className="text-primary text-xl mr-4">
-                  <FaLocationDot />
-                </span>
-                <div>
-                  <h3 className="font-semibold text-2xl">Address</h3>
-                  <p className="text-gray-600">
-                    236 5th St Avenue, New <br /> York NY10000, United <br />
-                    States
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="text-primary text-xl mr-4">
-                  <FaPhoneAlt />
-                </span>
-                <div>
-                  <h3 className="font-semibold text-2xl">Phone</h3>
-                  <p className="text-gray-600">Mobile: +1(84) 546-6789</p>
-                  <p className="text-gray-600">Hotline: +1(84) 456-6789</p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <span className="text-primary text-xl mr-4">
-                  <FaClock />
-                </span>
-                <div>
-                  <h3 className="font-semibold text-2xl">Working Time</h3>
-                  <p className="text-gray-600">
-                    Monday-Friday: 9:00 -<br /> 22:00
-                  </p>
-                  <p className="text-gray-600">
-                    Saturday-Sunday: 9:00 - <br />
-                    21:00
-                  </p>
-                </div>
-              </div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl font-bold mb-2">Get In Touch With Us</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          For More Information About Our Product & Services, Please Feel Free To
+          Drop Us An Email. Our Staff Always Be There To Help You Out. Do Not
+          Hesitate!
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="space-y-8">
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <FaLocationDot className="h-6 w-6" />
             </div>
-            {/* Contact Form */}
             <div>
-              <form className="space-y-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-gray-700 font-medium"
-                  >
-                    Your name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Abc"
-                    className="w-full border-2 border-gray-400 rounded-md shadow-sm focus:ring-primary focus:border-primary mt-2 p-3"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-gray-700 font-medium"
-                  >
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Abc@def.com"
-                    className="w-full border-2 border-gray-400 rounded-md shadow-sm focus:ring-primary focus:border-primary mt-2 p-3"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-gray-700 font-medium"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="This is optional"
-                    className="w-full border-2 border-gray-400 rounded-md shadow-sm focus:ring-primary focus:border-primary mt-2 p-3"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-gray-700 font-medium"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    placeholder="Hi! I'd like to ask about..."
-                    className="w-full border-2 border-gray-400 rounded-md shadow-sm focus:ring-primary focus:border-primary mt-2 p-3"
-                    rows={5}
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-[237px] h-[55px] bg-secondary text-white font-semibold py-3 rounded-md"
-                >
-                  Submit
-                </button>
-              </form>
+              <h3 className="text-lg font-semibold mb-1">Address</h3>
+              <p className="text-gray-600">
+                236 5th St Avenue, New <br /> York NY10000, United <br />
+                States
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <FaPhoneAlt className="h-6 w-6" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Phone</h3>
+              <p className="text-gray-600">Mobile: +(84) 546-6789</p>
+              <p className="text-gray-600">Hotline: +(84) 456-6789</p>
+            </div>
+          </div>
+
+          <div className="flex items-start space-x-4">
+            <div className="flex-shrink-0">
+              <FaClock className="h-6 w-6" />
+            </div>
+            <div>
+              <h3 className="text-lg font-semibold mb-1">Working Time</h3>
+              <p className="text-gray-600">Monday-Friday: 9:00 - 22:00</p>
+              <p className="text-gray-600">Saturday-Sunday: 9:00 - 21:00</p>
             </div>
           </div>
         </div>
-      </section>
 
-      <div className="w-[1320px] py-16 m-auto">
-        <div className="bg-gray-100 py-8">
-          <div className="max-w-screen-xl mx-auto flex justify-between items-center gap-8 px-4">
-            <div className="flex items-center gap-4">
-              <span className="text-5xl">
-                <CiTrophy />
-              </span>
-              <div>
-                <h3 className="text-lg font-bold">High Quality</h3>
-                <p className="text-sm text-gray-600">
-                  Crafted from top materials
-                </p>
-              </div>
+        <div className="bg-white rounded-lg p-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Your name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className="p-5 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm border border-black"
+                placeholder="Abc"
+                required
+              />
             </div>
-            <div className="flex items-center gap-4">
-              <span className="text-5xl">
-                <RiCustomerService2Fill />
-              </span>
-              <div>
-                <h3 className="text-lg font-bold">Warranty Protection</h3>
-                <p className="text-sm text-gray-600">Over 2 years</p>
-              </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Email address
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="p-5 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm border border-black"
+                placeholder="Abc@def.com"
+                required
+              />
             </div>
-            <div className="flex items-center gap-4">
-              <span className="text-5xl">
-                <FaRegCheckCircle />
-              </span>
-              <div>
-                <h3 className="text-lg font-bold">24 / 7 Support</h3>
-                <p className="text-sm text-gray-600">Dedicated support</p>
-              </div>
+
+            <div>
+              <label
+                htmlFor="subject"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Subject
+              </label>
+              <input
+                type="text"
+                id="subject"
+                name="subject"
+                value={formData.subject}
+                onChange={handleChange}
+                className="p-5 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm border border-black"
+                placeholder="This is an optional"
+              />
             </div>
+
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Message
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={4}
+                className="p-5 mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-secondary focus:ring-secondary sm:text-sm border border-black"
+                placeholder="Hi! I'd like to ask about"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-secondary focus:outline-none"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+        <div className="text-center">
+          <div className="flex justify-center mb-4">
+            <span className="text-5xl">
+              <CiTrophy />
+            </span>
           </div>
+          <h3 className="text-lg font-semibold mb-2">High Quality</h3>
+          <p className="text-gray-600">Crafted from top materials</p>
+        </div>
+
+        <div className="text-center">
+          <div className="flex justify-center mb-4">
+            <span className="text-5xl">
+              <FaRegCheckCircle />
+            </span>
+          </div>
+          <h3 className="text-lg font-semibold mb-2">Warranty Protection</h3>
+          <p className="text-gray-600">Over 2 years</p>
+        </div>
+
+        <div className="text-center">
+          <div className="flex justify-center mb-4">
+            <span className="text-5xl">
+              <RiCustomerService2Fill />
+            </span>
+          </div>
+          <h3 className="text-lg font-semibold mb-2">24 / 7 Support</h3>
+          <p className="text-gray-600">Dedicated support</p>
         </div>
       </div>
     </div>

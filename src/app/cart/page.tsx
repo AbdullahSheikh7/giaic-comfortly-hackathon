@@ -1,81 +1,31 @@
+import CartProductCatalog from "@/components/CartProductCatalog";
 import Image from "next/image";
-import { IoHeartOutline } from "react-icons/io5";
-import { IoTrashOutline } from "react-icons/io5";
 
-type Props = {};
-
-const page = (props: Props) => {
+const page = () => {
   return (
     <main className="container mx-auto px-4 py-8 flex-1">
       <div className="grid lg:grid-cols-3 gap-8">
         <div className="lg:col-span-2">
           <h2 className="text-2xl font-semibold mb-6">Bag</h2>
           <div className="space-y-6">
-            <div className="flex gap-4 p-4 rounded-lg">
-              <Image
-                src="/products/product-3.jpeg"
-                alt="Orange Library Stool Chair"
-                width={150}
-                height={150}
-                className="rounded-lg object-cover"
-              />
-              <div className="flex-1">
-                <div className="flex justify-between">
-                  <div>
-                    <h3 className="font-medium">Library Stool Chair</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Ashen Slate/Cobalt Bliss
-                    </p>
-                    <div className="mt-2 space-y-1 flex gap-3 items-center">
-                      <p className="text-sm">Size: L</p>
-                      <p className="text-sm">Quantity: 1</p>
-                    </div>
-                  </div>
-                  <p className="font-medium">MRP: $99</p>
-                </div>
-                <div className="flex gap-2 mt-4">
-                  <button>
-                    <IoHeartOutline />
-                  </button>
-                  <button>
-                    <IoTrashOutline />
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex gap-4 p-4 rounded-lg">
-              <Image
-                src="/products/product-5.jpeg"
-                alt="Gray Library Stool Chair"
-                width={150}
-                height={150}
-                className="rounded-lg object-cover"
-              />
-              <div className="flex-1">
-                <div className="flex justify-between">
-                  <div>
-                    <h3 className="font-medium">Library Stool Chair</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Ashen Slate/Cobalt Bliss
-                    </p>
-                    <div className="mt-2 space-y-1 flex gap-3 items-center">
-                      <p className="text-sm">Size: L</p>
-                      <p className="text-sm">Quantity: 1</p>
-                    </div>
-                  </div>
-                  <p className="font-medium">MRP: $99</p>
-                </div>
-                <div className="flex gap-2 mt-4">
-                  <button>
-                    <IoHeartOutline />
-                  </button>
-                  <button>
-                    <IoTrashOutline />
-                  </button>
-                </div>
-              </div>
-            </div>
+            <CartProductCatalog
+              color="Ashen Slate/Cobal Bliss"
+              imgAlt="Orange Library Stool Chair"
+              imgSrc="/products/product-3.jpeg"
+              mrp="$99"
+              name="Library Stool Chair"
+              quantity="1"
+              size="L"
+            />
+            <CartProductCatalog
+              color="Ashen Slate/Cobal Bliss"
+              imgAlt="Gray Library Stool Chair"
+              imgSrc="/products/product-5.jpeg"
+              mrp="$99"
+              name="Library Stool Chair"
+              quantity="1"
+              size="L"
+            />
           </div>
         </div>
 
